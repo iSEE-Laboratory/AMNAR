@@ -1,0 +1,25 @@
+ninja_required_version = 1.3
+cxx = c++
+
+cflags = -pthread -B /home/weijin/anaconda3/envs/EgoPER/compiler_compat -DNDEBUG -fwrapv -O2 -Wall -fPIC -O2 -isystem /home/weijin/anaconda3/envs/EgoPER/include -fPIC -O2 -isystem /home/weijin/anaconda3/envs/EgoPER/include -fPIC -I/home/weijin/anaconda3/envs/EgoPER/lib/python3.11/site-packages/torch/include -I/home/weijin/anaconda3/envs/EgoPER/lib/python3.11/site-packages/torch/include/torch/csrc/api/include -I/home/weijin/anaconda3/envs/EgoPER/lib/python3.11/site-packages/torch/include/TH -I/home/weijin/anaconda3/envs/EgoPER/lib/python3.11/site-packages/torch/include/THC -I/home/weijin/anaconda3/envs/EgoPER/include/python3.11 -c
+post_cflags = -fopenmp -DTORCH_API_INCLUDE_EXTENSION_H '-DPYBIND11_COMPILER_TYPE="_gcc"' '-DPYBIND11_STDLIB="_libstdcpp"' '-DPYBIND11_BUILD_ABI="_cxxabi1011"' -DTORCH_EXTENSION_NAME=nms_1d_cpu -D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+cuda_dlink_post_cflags = 
+ldflags = 
+
+rule compile
+  command = $cxx -MMD -MF $out.d $cflags -c $in -o $out $post_cflags
+  depfile = $out.d
+  deps = gcc
+
+
+
+
+
+build /home/weijin/source/MistakeDetection/EgoPER_official/libs/utils/build/temp.linux-x86_64-cpython-311/./csrc/nms_cpu.o: compile /home/weijin/source/MistakeDetection/EgoPER_official/libs/utils/csrc/nms_cpu.cpp
+
+
+
+
+
+
+
