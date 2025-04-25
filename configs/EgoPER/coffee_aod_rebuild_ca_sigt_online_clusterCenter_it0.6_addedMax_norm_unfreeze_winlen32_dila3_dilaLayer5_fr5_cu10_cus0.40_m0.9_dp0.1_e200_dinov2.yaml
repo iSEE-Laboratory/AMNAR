@@ -1,0 +1,78 @@
+dataset_name: EgoPER
+train_split: training
+val_split: validation
+test_split: test
+model_name: LocPointTransformer_CSPL_GCN
+dataset: {
+  num_classes: 16,
+  trunc_thresh: 0.5,
+  crop_ratio: [0.9, 1.0],
+  max_seq_len: 2304,
+  background_ratio: 1.0,
+  use_gcn: True,
+  task: coffee,
+  features_subdir: features_10fps_dinov2
+}
+model: {
+  fpn_type: identity,
+  backbone_type: convGCNTransformer,
+  max_buffer_len_factor: 6.0,
+  n_mha_win_size: 19,
+  online_mode: True,
+  input_dim: 1024
+}
+rebuild_model_cfg: {
+  num_layers : 1,
+  use_multiple_possibilities: single_intersection_gt_label,
+  results_frame_type: pred,
+  return_transformed: False,
+  diversity_mode: cluster_center,
+  diversity_max_added_seq: 6,
+  use_norm: True,
+  freeze_backbone: False,
+  win_len: 32,
+  dilation: 3,
+  dilated_conv_layers: 5,
+  conv_non_linear: False,
+  potential_action_generation_filtration_rate: 5,
+  cluster_update_interval: 10,
+  cluster_update_stop_epoch: 0.40,
+  cluster_center_update_momentum: 0.9,
+  action_feat_to_center_distance_loss_dist: -1,
+  concat_query_to_attnout: False,
+  use_layernorm: False,
+  drop_rate: 0.1,
+  intersection_threshold: 0.6
+}
+opt: {
+  learning_rate: 0.001,
+  epochs: 200,
+  weight_decay: 0.05,
+  schedule_gamma: 0.7,
+}
+loader: {
+  batch_size: 5, # 10 9 8 7 6 5
+  drop_last: False,
+}
+train_cfg: {
+  init_loss_norm: 100,
+  clip_grad_l2norm: 1.0,
+  cls_prior_prob: 0.01,
+  center_sample: radius,
+  center_sample_radius: 1.5,
+  model_mode: rebuild,
+  rebuild_loss_weight: 2.0,
+  rebuild_loss_choice: residual,
+  rebuild_model_choice: cross_attn,
+}
+test_cfg: {
+  voting_thresh: 0.7,
+  pre_nms_topk: 2000,
+  max_seg_num: 200,
+  min_score: 0.001,
+  multiclass_nms: True,
+}
+error_detection_inference_cfg: {
+  quantile: 0.85,
+}
+output_folder: ./ckpt/EgoPER/
