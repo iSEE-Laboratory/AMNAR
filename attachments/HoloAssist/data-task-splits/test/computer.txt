@@ -1,0 +1,20 @@
+R214-17Nov-GraphicsCard
+R158-3Oct-RAM & Graphicscard
+R136-31Aug-RAM
+R147-02Sep-RAM
+R134-26Aug-GraphicsCard
+R148-02Sep-Graphicscard
+R211-16Nov-RAM
+R163-3Oct-RAM
+R145-02Sep-RAM
+R213-16Nov-GraphicsCard
+R199-2Nov-RAM
+R135-31Aug-Graphicscard
+R132-26Aug-GraphicsCard
+R130-25Aug-GraphicsCard
+R139-31Aug-Graphicscard
+R179-12Oct-Graphicscard
+R181-12Oct-Graphicscard
+R186-17Oct-RAM
+R212-16Nov-GraphicsCard
+R162-3Oct-RAM
