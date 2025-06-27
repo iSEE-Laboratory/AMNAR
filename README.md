@@ -3,6 +3,7 @@
 (CVPR 2025) Official implementation of Paper ''Modeling Multiple Normal Action Representations for Error Detection in Procedural Tasks''
 
 CVPR version: [Modeling Multiple Normal Action Representations for Error Detection in Procedural Tasks](https://openaccess.thecvf.com/content/CVPR2025/html/Huang_Modeling_Multiple_Normal_Action_Representations_for_Error_Detection_in_Procedural_CVPR_2025_paper.html)
+
 arXiv version: [Modeling Multiple Normal Action Representations for Error Detection in Procedural Tasks](https://arxiv.org/abs/2503.22405)
 
 If you find this paper helpful, please cite our work:
