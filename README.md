@@ -64,6 +64,8 @@ python train.py ./configs/EgoPER/tea_aod_online.yaml --output af200
 python train.py ./configs/EgoPER/tea_aod_rebuild_ca_sigt_online_clusterCenter_it0.6_addedMax_norm_unfreeze_winlen32_dila3_dilaLayer5_fr5_cu10_cus0.40_m0.9_dp0.1_e200.yaml --resume ./ckpt/EgoPER/tea_aod_online_af200/epoch_205.pth.tar --output 1st 
 ```
 
+Also, you can choose to download our weights to reproduce our work. [Google Drive](https://drive.google.com/drive/folders/1DrnDhNWq1MDmtFpjwOMz_VuQo5PeAD_a?usp=sharing)
+
 ## 3 Inference
 
 An inference example of `tea` task in EgoPER
